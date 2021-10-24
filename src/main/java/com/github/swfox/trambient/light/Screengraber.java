@@ -11,8 +11,7 @@ public class Screengraber {
         BufferedImage image = null;
         try {
             image = new Robot().createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
-            Color color = getColor(image, mode);
-            return color;
+            return getColor(image, mode);
         } catch (AWTException e) {
             e.printStackTrace();
         }

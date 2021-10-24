@@ -7,6 +7,14 @@ import java.io.*;
 import java.util.Properties;
 
 public class Configuration {
+
+    public static final String GATEWAY_CREDENTIALS_IDENTITY = "gateway.credentials.identity";
+    public static final String GATEWAY_CREDENTIALS_KEY = "gateway.credentials.key";
+    public static final String GATEWAY_IP = "gateway.ip";
+    public static final String GATEWAY_SECRET = "gateway.secret";
+    public static final String SELECTED_LIGHTS = "selected.light";
+    public static final String SELECTED_LIGHTS_SEPARATOR = ";";
+
     final static Logger log = LoggerFactory.getLogger(LightController.class);
     private static final String FILENAME = "trambient.settings";
     private final Properties properties;
@@ -31,7 +39,7 @@ public class Configuration {
 
     public String get(String key) {
         String value = properties.getProperty(key);
-        if(value == null){
+        if (value == null) {
             return "";
         }
         return value;

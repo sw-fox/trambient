@@ -18,21 +18,19 @@ public class Scheduler {
 
     public void start() {
         running = true;
-        Thread thread = new Thread() {
-            public void run() {
-                log.debug("Scheduler Running");
-                while (running) {
-                    calculate();
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
-                    }
+        Thread thread = new Thread(() -> {
+            log.debug("Scheduler Running");
+            while (running) {
+                calculate();
+                try {
+                    Thread.sleep(100);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
-                log.debug("Scheduler stopped");
-                controller.resetColor();
             }
-        };
+            log.debug("Scheduler stopped");
+            controller.resetColor();
+        });
         thread.start();
 
     }
