@@ -45,12 +45,12 @@ jobs:
           name: maven-jar
       - name: trim changes from changelog
         shell: bash
-          run: |
-            cp CHANGELOG.md changes.md
-            sed -i '/## /,$!d' changes.md
-            sed -i 1d changes.md
-            sed -i '/^## /q;' changes.md
-            sed -i '$ d' changes.md
+        run: |
+          cp CHANGELOG.md changes.md
+          sed -i '/## /,$!d' changes.md
+          sed -i 1d changes.md
+          sed -i '/^## /q;' changes.md
+          sed -i '$ d' changes.md
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
