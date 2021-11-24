@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 import java.awt.event.ActionEvent;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.mockito.Mockito.*;
 
 public class ConnectionButtonTest {
@@ -45,13 +46,13 @@ public class ConnectionButtonTest {
     }
 
     @Test
-    public void update_connected(){
+    public void update_connected() {
         ConnectionButton sut = new ConnectionButton(controllerMock, modelMock);
         when(isConnectedMock.get()).thenReturn(true);
 
         sut.update();
 
         assertEquals("Verbunden", sut.getText());
-        assertEquals(false, sut.isEnabled());
+        assertFalse(sut.isEnabled());
     }
 }

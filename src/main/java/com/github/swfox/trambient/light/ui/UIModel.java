@@ -2,6 +2,7 @@ package com.github.swfox.trambient.light.ui;
 
 import com.github.swfox.trambient.light.Configuration;
 import com.github.swfox.trambient.light.ui.observer.ValueObservable;
+import com.github.swfox.trambient.light.version.Version;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,8 +15,9 @@ public class UIModel {
     private final ValueObservable<List<String>> allLights;
     private final ValueObservable<Boolean> isConnected;
     private final ValueObservable<Boolean> isRunning;
+    private final Version version;
 
-    public UIModel(Configuration configuration) {
+    public UIModel(Configuration configuration, Version version) {
         gatewayIp = new ValueObservable<>(configuration.get(Configuration.GATEWAY_IP));
         gatewaySecrets = new ValueObservable<>(configuration.get(Configuration.GATEWAY_SECRET));
         selectedLights = new ValueObservable<>(Arrays.asList(configuration.get(Configuration.SELECTED_LIGHTS)
@@ -23,6 +25,7 @@ public class UIModel {
         allLights = new ValueObservable<>(new ArrayList<>());
         isConnected = new ValueObservable<>(false);
         isRunning = new ValueObservable<>(false);
+        this.version = version;
     }
 
     public ValueObservable<String> getGatewayIp() {
@@ -47,5 +50,17 @@ public class UIModel {
 
     public ValueObservable<Boolean> getIsRunning() {
         return isRunning;
+    }
+
+    public boolean isUpdateAvailable(){
+        return version.isUdateAvailable();
+    }
+
+    public String getNewVersion(){
+        return version.getLatestVersion();
+    }
+
+    public String getCurrentVersion(){
+        return version.getVersion();
     }
 }
