@@ -21,7 +21,7 @@ public class LightSelector extends JButton implements ActionListener, Observer {
     private List<JMenuItem> popupItems;
 
     public LightSelector(UIController controller, UIModel model) {
-        super("select Light");
+        super("Lampen wählen");
         this.controller = controller;
         this.model = model;
         this.addActionListener(this);

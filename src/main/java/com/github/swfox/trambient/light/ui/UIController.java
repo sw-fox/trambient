@@ -2,6 +2,7 @@ package com.github.swfox.trambient.light.ui;
 
 import com.github.swfox.trambient.light.Configuration;
 import com.github.swfox.trambient.light.Scheduler;
+import com.github.swfox.trambient.light.Screengraber;
 import nl.stijngroenen.tradfri.device.Light;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -61,5 +62,9 @@ public class UIController {
             scheduler.start();
             model.getIsRunning().set(true);
         }
+    }
+
+    public void setMode(Screengraber.MODE mode) {
+        scheduler.setMode(mode);
     }
 }

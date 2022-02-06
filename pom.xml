@@ -6,7 +6,7 @@
 
     <groupId>com.github.swfox</groupId>
     <artifactId>trambient</artifactId>
-    <version>1.2.0</version>
+    <version>1.3.0</version>
 
     <properties>
         <encoding>UTF-8</encoding>
@@ -38,7 +38,7 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-junit-jupiter</artifactId>
-            <version>4.2.0</version>
+            <version>4.3.1</version>
             <scope>test</scope>
         </dependency>
         <dependency>

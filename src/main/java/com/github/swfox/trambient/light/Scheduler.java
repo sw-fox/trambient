@@ -9,11 +9,13 @@ public class Scheduler {
     private final LightController controller;
     private final Screengraber grabber;
     private boolean running;
+    private Screengraber.MODE mode;
 
     public Scheduler(Configuration configuration) {
         controller = new LightController(configuration);
         grabber = new Screengraber();
         running = false;
+        mode = Screengraber.MODE.OUTER;
     }
 
     public void start() {
@@ -40,7 +42,7 @@ public class Scheduler {
     }
 
     public void calculate() {
-        Color color = grabber.grab(Screengraber.MODE.OUTER);
+        Color color = grabber.grab(mode);
         controller.setColor(color);
     }
 
@@ -50,5 +52,9 @@ public class Scheduler {
 
     public boolean isRunning() {
         return running;
+    }
+
+    public void setMode(Screengraber.MODE mode) {
+        this.mode = mode;
     }
 }

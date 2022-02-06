@@ -83,11 +83,11 @@ public class LightController {
     }
 
     private void resetLight(Light light) {
-        if (previousColors.containsKey(light.getName())) {
-            light.setColour(previousColors.get(light.getName()));
-        }
         if (previousStates.containsKey(light.getName())) {
             light.setOn(previousStates.get(light.getName()));
+        }
+        if (previousColors.containsKey(light.getName())) {
+            light.setColour(previousColors.get(light.getName()));
         }
     }
 

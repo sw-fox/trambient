@@ -32,12 +32,14 @@ public class UIView {
 
         //Line 1
         JLabel ipLabel = new JLabel("IP");
+        ipLabel.setToolTipText("unter welcher IP ist das Gateway erreichbar");
         ipInput = new ConnectionInput(model.getGatewayIp(), model.getIsConnected());
         grid.add(ipLabel);
         grid.add(ipInput);
 
         //Line 2
         JLabel secretLabel = new JLabel("Secret");
+        secretLabel.setToolTipText("das Secret steht auf der Unterseite des Gateways");
         secretInput = new ConnectionSecretInput(model.getGatewaySecret(), model.getIsConnected());
         grid.add(secretLabel);
         grid.add(secretInput);
@@ -50,11 +52,19 @@ public class UIView {
 
         //Line 4
         JLabel choseLight = new JLabel("Licht wählen");
+        choseLight.setToolTipText("welche Lichter sollen als Hintergrundlicht genutzt werden");
         LightSelector comboBox = new LightSelector(controller, model);
         grid.add(choseLight);
         grid.add(comboBox);
 
         //Line 5
+        JLabel choseMode = new JLabel("Modus wählen");
+        choseMode.setToolTipText("welche Bereiche des Bildschirms sollen als Hintergrund genutzt werden");
+        ModeSelector modeComboBox = new ModeSelector(controller, model);
+        grid.add(choseMode);
+        grid.add(modeComboBox);
+
+        //Line 6
         runButton = new StartButton(controller, model);
         grid.add(runButton);
 
