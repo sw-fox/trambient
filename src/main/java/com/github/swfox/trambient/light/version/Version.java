@@ -43,11 +43,9 @@ public class Version {
     }
 
     public static String readLatestVersion(String urlToRead) {
-        URL url = null;
-        HttpURLConnection conn = null;
         try {
-            url = new URL(urlToRead);
-            conn = (HttpURLConnection) url.openConnection();
+            URL url = new URL(urlToRead);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             BufferedReader in = new BufferedReader(
                     new InputStreamReader(conn.getInputStream()));
