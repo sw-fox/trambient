@@ -28,7 +28,7 @@ jobs:
         run: |
           cp target/trambient*with-dependencies.jar trambient.jar
       - name: Upload maven jar
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: maven-jar
           path: trambient.jar
